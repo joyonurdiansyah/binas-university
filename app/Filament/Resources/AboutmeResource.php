@@ -22,15 +22,28 @@ class AboutmeResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                //
-            ]);
+        ->schema([
+            Forms\Components\Textarea::make('content')
+                ->required()
+                ->columnSpanFull(),
+            Forms\Components\FileUpload::make('image')
+                ->image()
+                ->required()
+                ->multiple()
+                ->minFiles(3)
+                ->maxFiles(3)
+                ->columnSpanFull(),
+        ]);
+    
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('content')
+                    ->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
