@@ -1,79 +1,57 @@
-    @extends('layouts.app')
-    @extends('content')
+@extends('layouts.app')
+
+@section('content')
     <!-- MAIN SECTION -->
     <article class="container mt-28">
       <h1
-        class="text-xl font-semibold text-xneutral-400 font-montserrat sm:text-2xl"
+        class="text-xneutral-400 font-montserrat text-xl sm:text-2xl font-semibold"
       >
         Sejarah B-University
       </h1>
       <p
-        class="text-sm font-semibold text-xneutral-200 sm:text-base font-montserrat"
+        class="text-xneutral-200 text-sm sm:text-base font-montserrat font-semibold"
       >
         Bersama mengembangkan pendidikan Negeri
       </p>
 
-      <div class="grid grid-cols-1 gap-6 mt-8 sm:grid-cols-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
         <div class="space-y-3">
           <h3
-            class="text-base font-semibold text-center font-montserrat sm:text-lg text-primary-200"
+            class="font-montserrat text-base sm:text-lg font-semibold text-primary-200 text-center"
           >
             VISI
           </h3>
           <p
-            class="text-lg font-semibold text-center uppercase sm:text-xl font-montserrat text-xneutral-200"
+            class="text-lg sm:text-xl font-semibold font-montserrat text-xneutral-200 text-center uppercase"
           >
-            "Menjadi Universitas Yang Inovatif,<br />
-            Profesional dan Islami”
+            {!! $visi ?? '"No Data Available"' !!}
           </p>
         </div>
         <div class="space-y-3">
           <h2
-            class="text-base font-semibold text-center font-montserrat sm:text-lg text-primary-200"
+            class="font-montserrat text-base sm:text-lg font-semibold text-primary-200 text-center"
           >
             MISI
           </h2>
           <ol
-            class="pl-4 text-sm font-semibold text-justify list-decimal font-montserrat text-xneutral-200 sm:text-base"
+            class="list-decimal pl-4 font-montserrat font-semibold text-xneutral-200 text-sm sm:text-base text-justify"
           >
-            <li>
-              Menyelenggarakan pendidikan yang berkualitas dan berlandaskan
-              nilai keislaman.
-            </li>
-            <li>
-              Melaksanakan penelitian yang inovatif bagi kemajuan ilmu
-              pengetahuan dan teknologi, industri dan kesehatan serta
-              kemaslahatan umat.
-            </li>
-            <li>
-              Melaksanakan pengabdian kepada masyarakat yang berbasis industri
-              kesehatan.
-            </li>
-            <li>
-              Memberikan dasar moral-religius terhadap pengembangan ilmu
-              pengetahuan, teknologi dan seni, serta pembinaan iman dan taqwa
-              dalam rangka da’wah islamiyah dan amar ma’ruf nahi mungkar.
-            </li>
-            <li>
-              Membangun kepercayaan dan mengembangkan kerjasama dengan berbagai
-              pihak untuk meningkatkan kualitas pelaksanaan catur dharma
-              perguruan tinggi.
-            </li>
+            {!! $misi ?? '"No Data Available"' !!}
           </ol>
         </div>
       </div>
 
       <div
-        class="grid grid-cols-1 mt-10 overflow-hidden border sm:grid-cols-3 border-xneutral-100 rounded-2xl"
+        class="grid grid-cols-1 sm:grid-cols-3 mt-10 border border-xneutral-100 rounded-2xl overflow-hidden"
       >
         <div class="p-[30px]">
           <h2
-            class="text-base font-semibold sm:text-lg text-xneutral-400 font-montserrat"
+            class="text-base sm:text-lg font-semibold text-xneutral-400 font-montserrat"
           >
             Inovatif
           </h2>
           <p
-            class="mt-4 text-xs font-medium font-montserrat text-xneutral-200 sm:text-sm"
+            class="font-montserrat font-medium mt-4 text-xneutral-200 text-xs sm:text-sm"
           >
             Makna ”Inovatif” dalam visi universitas adalah Lulusan mempunyai
             kemampuan dalam berfikir untuk menciptakan pengetahuan dan teknologi
@@ -82,16 +60,20 @@
           </p>
         </div>
         <div>
-          <img src="/assets/images/visi-2.png" alt="Inovatif" />
+            @if(isset($visimisiImg[0]))
+                <img src="{{ asset('storage/'. $visimisiImg[0]) }}" alt="Inovatif" />
+            @else
+                <p>No Image Available</p>
+            @endif
         </div>
         <div class="p-[30px]">
           <h2
-            class="text-base font-semibold sm:text-lg text-xneutral-400 font-montserrat"
+            class="text-base sm:text-lg font-semibold text-xneutral-400 font-montserrat"
           >
             Profesional
           </h2>
           <p
-            class="mt-4 text-xs font-medium font-montserrat text-xneutral-200 sm:text-sm"
+            class="font-montserrat font-medium mt-4 text-xneutral-200 text-xs sm:text-sm"
           >
             Makna ”Profesional” dalam visi universitas adalah lulusan mempunyai
             kompetensi sesuai dengan profesinya masing-masing baik dalam aspek
@@ -100,16 +82,20 @@
           </p>
         </div>
         <div>
-          <img src="/assets/images/visi-1.png" alt="Profesional" />
+            @if(isset($visimisiImg[1]))
+                <img src="{{ asset('storage/'. $visimisiImg[1]) }}" alt="Inovatif" />
+            @else
+                <p>No Image Available</p>
+            @endif
         </div>
         <div class="p-[30px]">
           <h2
-            class="text-base font-semibold sm:text-lg text-xneutral-400 font-montserrat"
+            class="text-base sm:text-lg font-semibold text-xneutral-400 font-montserrat"
           >
             Islami
           </h2>
           <p
-            class="mt-4 text-xs font-medium font-montserrat text-xneutral-200 sm:text-sm"
+            class="font-montserrat font-medium mt-4 text-xneutral-200 text-xs sm:text-sm"
           >
             Makna ”Islami” dalam visi universitas adalah lulusan mempunyai
             integritas menjunjung tinggi nilai-nilai keislaman (Islamic values)
@@ -118,9 +104,12 @@
           </p>
         </div>
         <div>
-          <img src="/assets/images/visi-3.png" alt="Islami" />
+            @if(isset($visimisiImg[2]))
+                <img src="{{ asset('storage/'. $visimisiImg[2]) }}" alt="Inovatif" />
+            @else
+                <p>No Image Available</p>
+            @endif
         </div>
       </div>
     </article>
-
-    @endsection
+@endsection
